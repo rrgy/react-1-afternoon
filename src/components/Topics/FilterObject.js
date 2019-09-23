@@ -3,8 +3,8 @@ import React, {Component} from 'react'
 export default class FilterObject extends Component{
     constructor(){
         super()
-        this.state={
-            employees:[
+        this.state = {
+            employees: [
                 {
                     name: 'Jimmy Joe',
                     title: 'Hack0r',
@@ -12,7 +12,7 @@ export default class FilterObject extends Component{
                 },
                 {
                     name: 'Jeremy Schrader',
-                    age: 23,
+                    age: 24,
                     hairColor: 'brown'
                 },
                 {
@@ -20,8 +20,8 @@ export default class FilterObject extends Component{
                     title: 'CEO',
                 }
             ],
-            userInput:'',
-            filteredEmplyees: []
+            userInput: '',
+            filteredEmployees:[]
         }
     }
     handleChange(val){
@@ -30,7 +30,7 @@ export default class FilterObject extends Component{
     filterEmployees(prop){
         let employees = this.state.employees
         let filteredEmployees = []
-        for(let i=0;i<employees.length;i++){
+        for (let i = 0; i < employees.length; i++){
             if(employees[i].hasOwnProperty(prop)){
                 filteredEmployees.push(employees[i])
             }
@@ -38,13 +38,13 @@ export default class FilterObject extends Component{
         this.setState({filteredEmployees: filteredEmployees})
     }
     render(){
-        return (
-            <div className='puzzleBox filterObjectPB'>
+        return(
+            <div className="puzzleBox filterObjectPB">
                 <h4>Filter Object</h4>
-                <span className='puzzleText'>Original: {JSON.stringify(this.state.employees,null,10)}</span>
-                <input className='inputLine'onChange={(e)=>this.handleChange(e.target.value)}></input>
-                <button className='confirmationButton' onClick={()=>this.filterEmplyees(this.state.userInput)}>Filter</button>
-                <span className='resultsBox filterObjectRB'>Filtered: {JSON.stringify(this.state.filteredEmployees,null,10)}</span>
+                <span className="puzzleText">Original: {JSON.stringify(this.state.employees, null, 10)}</span>
+                <input className="inputLine" onChange={(e) => this.handleChange(e.target.value)}></input>
+                <button className="confirmationButton" onClick={() => this.filterEmployees(this.state.userInput)}>Filter</button>
+                <span className="resultsBox filterObjectRB">Filtered: {JSON.stringify(this.state.filteredEmployees, null, 10)}</span>
             </div>
         )
     }
